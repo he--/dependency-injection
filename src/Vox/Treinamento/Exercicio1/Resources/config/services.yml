@@ -1,12 +1,25 @@
 parameters:
     # ...
     mailer.transport: sendmail
-
+    exercicio1.chocolate_valor: 2.00
+    exercicio1.rapadura_valor: 5.35
+    exercicio1.espresso_valor: 3.8
+    
 services:
-    teste:
-        class:     "Vox\Treinamento\DependencyInjection\Teste"
-
-    teste_manager:
-        class:     "Vox\Treinamento\DependencyInjection\TesteManager"
-        arguments: ["@teste"]
+    exercicio1.pedido:
+        class:     "Vox\\Treinamento\\Exercicio1\\Pedido"
+        arguments: [%exercicio1.numero_pedido%]
+        
+    exercicio1.chocolate:
+        class:     "Vox\\Treinamento\\Exercicio1\\Chocolate"
+        arguments: [%exercicio1.chocolate_valor%]
+        
+    exercicio1.rapadura:
+        class:     "Vox\\Treinamento\\Exercicio1\\Rapadura"
+        arguments: [%exercicio1.rapadura_valor%]
+        
+    exercicio1.espresso:
+        class:     "Vox\\Treinamento\\Exercicio1\\Espresso"
+        arguments: [%exercicio1.espresso_valor%]
+        
         

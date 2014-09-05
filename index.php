@@ -17,8 +17,19 @@ $container->loadFromExtension($extension->getAlias());
 //$loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/Resources/config'));
 //$loader->load('services.yml');
 
+$container->setParameter('exercicio1.numero_pedido' , 2);
 $container->compile();
 
-$tm = $container->get('teste_manager');
 
-var_dump($tm);
+$pedido = $container->get('exercicio1.pedido');
+
+//$container->setParameter('exercicio1.espresso');
+
+$espresso = $container->get('exercicio1.espresso');
+$espresso->addAdicional($container->get('exercicio1.chocolate'));
+$espresso->addAdicional($container->get('exercicio1.rapadura'));
+
+$pedido->addPedido($espresso);
+        
+
+var_dump($pedido->toString());
