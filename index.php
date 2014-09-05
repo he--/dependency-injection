@@ -32,4 +32,4 @@ $espresso->addAdicional($container->get('exercicio1.rapadura'));
 $pedido->addPedido($espresso);
         
 
-var_dump($pedido->toString());
+print_r($pedido->toString());
